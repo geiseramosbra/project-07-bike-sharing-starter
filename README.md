@@ -46,3 +46,44 @@ O dataset utilizado é `day_sample.csv`, que contém registros diários de uso d
 1. **Carregamento do CSV**
    ```python
    df = pd.read_csv('../data/sample/day_sample.csv')
+
+
+## 🔹 Criação de colunas extras
+
+season_name → nome da estação
+year, month, day → extraídos da data
+
+## 🔹 Criação de engine SQL em memória
+
+from sqlalchemy import create_engine
+engine = create_engine("sqlite://", echo=False)
+df.to_sql("bike", con=engine, index=False, if_exists="replace")
+
+## 🔹 Consultas SQL e visualizações
+
+Média de aluguéis por estação
+Top 10 dias com maior número de aluguéis
+Comparação entre usuários casuais e registrados
+
+## 🔹 Visualizações
+
+Gráficos de barras utilizando Seaborn para ilustrar insights
+
+## 🔹 Como Rodar
+
+#Clone este repositório: 
+
+git clone https://github.com/seu-usuario/bike-sharing-analysis.git
+cd bike-sharing-analysis
+
+#Instale as dependências:
+
+pip install pandas matplotlib seaborn sqlalchemy
+
+#Abra o notebook:
+
+jupyter notebook Bike_Sharing_Analysis.ipynb
+
+
+
+
